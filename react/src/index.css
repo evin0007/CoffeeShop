@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(239, 249, 124); 
+    border-radius: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fff265; 
+  }
+}
+
+@media screen and (max-width: 850px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  html, body {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+section, div[id] {
+  scroll-margin-top: 80px; 
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+textarea{
+    resize: none;
+    field-sizing: content;
+    overflow-y: hidden;
+}

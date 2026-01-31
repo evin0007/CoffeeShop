@@ -1,0 +1,41 @@
+<?php
+
+use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomersRecordController;
+use App\Http\Controllers\DisplayRevenueController;
+use App\Http\Controllers\Online_orderController;
+use App\Http\Controllers\OnlineOrderController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RatingController;
+use App\Http\Controllers\StaffRecordController;
+use App\Http\Controllers\TransferOrderController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/products', [ProductController::class, 'index']);
+Route::post('/products', [ProductController::class, 'store']);
+Route::put('/products/{id}', [ProductController::class, 'update']);
+Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+Route::post('/orders', [OrderController::class, 'store']);
+Route::post('/checkout', [Online_orderController::class, 'store']);
+Route::get('/orders/search/{code}', [OnlineOrderController::class, 'search']);
+Route::get('/online', [OnlineOrderController::class, 'index']);
+Route::post('/save-order', [TransferOrderController::class, 'store']);
+Route::get('/customers-records', [CustomersRecordController::class, 'index']);
+Route::delete('/customers-records/{id}', [CustomersRecordController::class, 'destroy']);
+Route::get('/revenue', [DisplayRevenueController::class, 'index']);
+Route::get('/admin/profile', [AdminController::class, 'getProfile']);
+Route::post('/admin/verify-password', [AdminController::class, 'verifyPassword']);
+Route::post('/admin/update-profile', [AdminController::class, 'updateProfile']);
+Route::get('/staff/record', [StaffRecordController::class, 'index']);
+Route::get('/staff/search', [StaffRecordController::class, 'search']);
+Route::post('/staff', [StaffRecordController::class, 'store']);
+Route::put('/staff/{id}', [StaffRecordController::class, 'update']);
+Route::delete('/staff/{id}', [StaffRecordController::class, 'destroy']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/Adminlogin', [AdminAuthController::class, 'login']);
+Route::post('/ratings', [RatingController::class, 'store']);
+Route::get('/showratings', [RatingController::class, 'index']);
+Route::delete('/showratings/{id}', [RatingController::class, 'destroy']);
