@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Coffee Shop</title>
     
-{{-- Ang 'build' parameter ay nagsasabi kay Laravel na tingnan ang public/build folder --}}
-@vite(['src/main.jsx'], 'build')
+    @viteReactRefresh
+    @vite('../react/src/main.jsx')
 </head>
 <body>
-    <div id="app"></div>
+    <div id="root"></div>
 </body>
 </html>
