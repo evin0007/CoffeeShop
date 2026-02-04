@@ -15,6 +15,28 @@
         "vite": "^7.0.7"
     },
     "dependencies": {
-        "lucide-react": "^0.562.0"
-    }
+        "cors": "^2.8.6",
+        "dotenv": "^17.2.3",
+        "express": "^5.2.1",
+        "lucide-react": "^0.562.0",
+        "mysql2": "^3.16.2"
+    },
+    "name": "my_coffee_shop",
+    "version": "1.0.0",
+    "description": "<p align=\"center\"><a href=\"https://laravel.com\" target=\"_blank\"><img src=\"https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg\" width=\"400\" alt=\"Laravel Logo\"></a></p>",
+    "main": "vite.config.js",
+    "directories": {
+        "test": "tests"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/evin0007/CoffeChop.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/evin0007/CoffeChop/issues"
+    },
+    "homepage": "https://github.com/evin0007/CoffeChop#readme"
 }

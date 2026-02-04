@@ -11,7 +11,6 @@ class RatingController extends Controller
     public function index()
     {
         try {
-            // Fetch all ratings
             $data = Rating::all();
 
             return response()->json($data);
