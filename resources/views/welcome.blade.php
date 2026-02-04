@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Coffee Shop</title>
     
-    @vite(['resources/js/app.jsx'])
-
-@vite(['react/src/main.jsx'])
+    {{-- Ito dapat ang nakasulat base sa manifest mo --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app"></div>
