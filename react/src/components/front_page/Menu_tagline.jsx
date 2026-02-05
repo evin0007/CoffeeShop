@@ -10,7 +10,7 @@ const MenuTagline = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/products');
+        const response = await fetch(window.location.origin + "/api/products");
         const data = await response.json();
         setProducts(data);
       } catch (error) {
