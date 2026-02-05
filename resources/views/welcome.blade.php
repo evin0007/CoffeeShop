@@ -6,7 +6,8 @@
     <title>My Coffee Shop</title>
     
     @viteReactRefresh
-    @vite('../react/src/main.jsx')
+    {{-- ALISIN ANG ../ SA SIMULA --}}
+    @vite('react/src/main.jsx')
 </head>
 <body>
     <div id="root"></div>
