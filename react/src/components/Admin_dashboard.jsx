@@ -46,7 +46,7 @@ const CoffeeDashboard = () => {
 
     if (result.isConfirmed) {
       localStorage.removeItem('admin_user');
-      navigate('/Adminlogin');
+      navigate('/Admin');
     }
   };
 

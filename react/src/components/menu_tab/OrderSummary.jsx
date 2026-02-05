@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { showOrderSuccess, showRatingModal } from './RatingModal';
 
-const STORAGE_URL = 'http://127.0.0.1:8000/storage/';
+const STORAGE_URL = window.location.origin + "/storage/";
 
 export default function OrderSummary({ cart, total, onBack, onUpdate }) {
   const [isProcessing, setIsProcessing] = useState(false);
