@@ -8,24 +8,22 @@ export default defineConfig({
     plugins: [
         tailwindcss(),
         laravel({
-            input: ['react/src/main.jsx'],
+            // Siguraduhin na ang file na ito ay nasa folder na /app/react/src/main.jsx
+            input: ['react/src/main.jsx'], 
             refresh: true,
         }),
         react(),
     ],
     resolve: {
         alias: {
-            'react': path.resolve(__dirname, 'node_modules/react'),
-            'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
+            // TANGGALIN ang 'react' at 'react-dom' aliases dito
             '@': path.resolve(__dirname, 'react/src'),
         },
     },
+    // Opsyonal: Sa Docker/Railpack, mas mainam na 0.0.0.0 ang host kung gagamit ng dev server,
+    // pero para sa build stage, hindi ito masyadong kritikal.
     server: {
-        host: '127.0.0.1', 
+        host: '0.0.0.0', 
         port: 5173,
-        strictPort: true,
-        hmr: {
-            host: '127.0.0.1',
-        },
     },
 });
