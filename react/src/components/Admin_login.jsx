@@ -56,11 +56,13 @@ const AdminLogin = () => {
 
                     <form onSubmit={handleLogin} className="space-y-6">
                         <div className="space-y-2">
-                            <label className="text-xs font-bold uppercase tracking-wider text-slate-500 ml-1">Admin Email</label>
+                            <label htmlFor='email' className="text-xs font-bold uppercase tracking-wider text-slate-500 ml-1">Admin Email</label>
                             <div className="relative group">
                                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-500 transition-colors" size={18} />
                                 <input 
+                                    id='email'
                                     type="email" 
+                                    autoComplete="email"
                                     required 
                                     className={inputClass}
                                     onChange={e => setCreds({...creds, corporate_email: e.target.value})} 
@@ -70,11 +72,12 @@ const AdminLogin = () => {
 
                         <div className="space-y-2">
                             <div className="flex justify-between items-end px-1">
-                                <label className="text-xs font-bold uppercase tracking-wider text-slate-500">Master Password</label>
+                                <label htmlFor='password' className="text-xs font-bold uppercase tracking-wider text-slate-500">Master Password</label>
                             </div>
                             <div className="relative group">
                                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-500 transition-colors" size={18} />
                                 <input 
+                                    id='password'
                                     type="password" 
                                     required 
                                     className={inputClass}
