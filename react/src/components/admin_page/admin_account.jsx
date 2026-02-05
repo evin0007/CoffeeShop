@@ -47,7 +47,6 @@ const AdminAccountPanel = () => {
         body: JSON.stringify({ email: adminData.corporate_email, password: verifyPass })
       });
 
-      // 1. Success
       if (res.ok) {
         setIsEditable(true);
         setIsModalOpen(false);
@@ -118,8 +117,8 @@ const AdminAccountPanel = () => {
                 <p className="text-sm font-bold text-stone-50">{adminData.legal_name || 'Administrator'}</p>
                 <p className="text-[10px] text-emerald-500 font-bold uppercase tracking-wider">Status: Active</p>
               </div>
-              <div className="w-9 h-9 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold border border-slate-200 uppercase">
-              <img src={logo} alt="Brand Logo" className="w-full h-full" />
+              <div className="w-9 h-9 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold border border-slate-200 uppercase overflow-hidden">
+                <img src={logo} alt="Brand Logo" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -131,12 +130,14 @@ const AdminAccountPanel = () => {
           
           <div className="lg:col-span-4">
             <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden sticky top-28">
-              <div className="h-32"><img src={logo2} alt="Brand Logo" className="w-full h-full" /></div>
+              <div className="h-32">
+                <img src={logo2} alt="Header Background" className="w-full h-full object-cover" />
+              </div>
               <div className="px-8 pb-8">
                 <div className="relative -mt-12 mb-6">
                   <div className="w-24 h-24 bg-white rounded-3xl p-1 shadow-xl">
-                    <div className="w-full h-full bg-slate-50 rounded-2xl flex items-center justify-center">
-                      <img src={logo} alt="Brand Logo" className="w-12 h-12" />
+                    <div className="w-full h-full bg-slate-50 rounded-2xl flex items-center justify-center overflow-hidden">
+                      <img src={logo} alt="Profile" className="w-12 h-12" />
                     </div>
                   </div>
                 </div>
@@ -194,6 +195,7 @@ const AdminAccountPanel = () => {
           </div>
         </div>
       </main>
+
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={() => setIsModalOpen(false)}></div>

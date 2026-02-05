@@ -39,11 +39,15 @@ const AddStaffForm = ({ onStaffUpdated }) => {
       });
     }
 
-    const res = await fetch(isEditing ? `http://localhost:8000/api/staff/${formData.id}` : 'http://localhost:8000/api/staff', {
-      method: isEditing ? 'PUT' : 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
+    const res = await fetch(isEditing 
+      ? `${window.location.origin}/api/staff/${formData.id}` 
+      : `${window.location.origin}/api/staff`,
+      {
+        method: isEditing ? 'PUT' : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      }
+    );
 
     if (res.ok) {
       await Swal.fire({ title: isEditing ? 'Log Updated' : 'Entry Confirmed', icon: 'success', confirmButtonColor: '#4a3728' });
@@ -53,11 +57,30 @@ const AddStaffForm = ({ onStaffUpdated }) => {
   };
 
   const handleDelete = async () => {
-    const { isConfirmed } = await Swal.fire({ title: 'Void Record?', text: "Permanent removal.", icon: 'warning', showCancelButton: true, confirmButtonColor: '#8b0000', confirmButtonText: 'Yes, Void' });
-    if (isConfirmed && (await fetch(`http://localhost:8000/api/staff/${formData.id}`, { method: 'DELETE' })).ok) {
-      Swal.fire({ title: 'Voided!', icon: 'success', confirmButtonColor: '#4a3728' });
-      resetForm();
-      onStaffUpdated?.();
+    const { isConfirmed } = await Swal.fire({ 
+      title: 'Void Record?', 
+      text: "Permanent removal.", 
+      icon: 'warning', 
+      showCancelButton: true, 
+      confirmButtonColor: '#8b0000', 
+      confirmButtonText: 'Yes, Void' 
+    });
+  
+    if (isConfirmed) {
+      try {
+        const response = await fetch(`${window.location.origin}/api/staff/${formData.id}`, { 
+          method: 'DELETE' 
+        });
+        if (response.ok) {
+          await Swal.fire({ title: 'Voided!', icon: 'success', confirmButtonColor: '#4a3728' });
+          resetForm();
+          onStaffUpdated?.();
+        } else {
+          throw new Error('Server responded with an error');
+        }
+      } catch (error) {
+        Swal.fire('Error', 'Could not delete the record.', 'error');
+      }
     }
   };
 
