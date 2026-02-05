@@ -9,7 +9,7 @@ const Dashboard = ({ changeTab }) => {
 
   useEffect(() => {
     const endpoints = ['products', 'customers-records', 'online', 'revenue'];
-    Promise.all(endpoints.map(e => axios.get(`window.location.origin + "/api"${e}`)))
+    Promise.all(endpoints.map(e => axios.get(window.location.origin + "/api/" + e)))
       .then(res => setData({ products: res[0].data, record: res[1].data, online: res[2].data, revenue: res[3].data }));
   }, []);
 
