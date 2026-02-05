@@ -31,7 +31,7 @@ const Analysis = () => {
   };
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/revenue')
+    fetch(window.location.origin + "/api/revenue")
       .then(res => res.json())
       .then(({ latest, history }) => {
         setLatest(latest);
@@ -48,7 +48,7 @@ const Analysis = () => {
       })
       .catch(err => console.error('Error fetching revenue:', err));
 
-    fetch('http://localhost:8000/api/customers-records')
+    fetch(window.location.origin + "/api/customers-records")
       .then(res => res.json())
       .then(orders => {
         if (!Array.isArray(orders)) return;

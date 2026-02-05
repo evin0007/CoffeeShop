@@ -3,7 +3,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import ViewOrderModal from './ViewOrderModal'; 
 
-const API_BASE_URL = "http://127.0.0.1:8000/api/customers-records";
+const API_BASE_URL = window.location.origin + "/api/customers-records";
 
 const CustomersRecord = () => {
     const [records, setRecords] = useState([]);

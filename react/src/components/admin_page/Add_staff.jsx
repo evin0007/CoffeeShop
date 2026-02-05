@@ -15,7 +15,7 @@ const AddStaffForm = ({ onStaffUpdated }) => {
   const handleLookup = async () => {
     if (!searchCode) return Swal.fire({ title: 'Entry Required', text: 'Please input a staff code.', icon: 'info', confirmButtonColor: '#4a3728' });
     try {
-      const res = await fetch(`http://localhost:8000/api/staff/search?code=${searchCode.replace('#', '')}`);
+      const res = await fetch(`${window.location.origin}/api/staff/search?code=${searchCode.replace('#', '')}`);
       if (!res.ok) throw new Error();
       setFormData(await res.json());
       setIsEditing(true);

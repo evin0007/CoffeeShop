@@ -24,7 +24,7 @@ const OrderItem = ({ name, id, status, price }) => (
 function Recent_Order() {
   const [recieptrecord, Records] = useState([]);
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/customers-records')
+    axios.get(window.location.origin + "/api/customers-records")
       .then(response => {
         Records(Array.isArray(response.data) ? response.data : []);
       })
@@ -33,7 +33,7 @@ function Recent_Order() {
 
   const [staffrecord, staff] = useState([]);
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/staff/record')
+    axios.get(window.location.origin + "/api/staff/record")
       .then(response => {
         staff(Array.isArray(response.data) ? response.data : []);
       })

@@ -11,7 +11,7 @@ const CustomerRatingsBox = () => {
   const fetchRatings = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get('http://127.0.0.1:8000/api/showratings');
+      const { data } = await axios.get(window.location.origin + "/api/showratings");
       if (data?.length > 0) {
         const avg = data.reduce((acc, curr) => acc + (Number(curr.rate) || 0), 0) / data.length;
         setStats({ average: Math.round(avg) || 0 });
@@ -26,7 +26,7 @@ const CustomerRatingsBox = () => {
     e.stopPropagation();
     Swal.fire({ title: 'Delete?', icon: 'warning', showCancelButton: true, confirmButtonColor: '#2D1B14' }).then(async (r) => {
       if (r.isConfirmed) {
-        await axios.delete(`http://127.0.0.1:8000/api/showratings/${id}`);
+        await axios.delete(`${window.location.origin}/api/showratings/${id}`);
         Swal.fire({ title: 'Deleted', icon: 'success', timer: 1000, showConfirmButton: false });
         fetchRatings();
       }

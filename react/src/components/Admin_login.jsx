@@ -13,7 +13,7 @@ const AdminLogin = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            const { data } = await axios.post('http://127.0.0.1:8000/api/Adminlogin', creds);
+            const { data } = await axios.post(window.location.origin + "/api/Adminlogin", creds);
             if (data.status === 'success') {
                 localStorage.setItem('admin_user', JSON.stringify(data.user));
  

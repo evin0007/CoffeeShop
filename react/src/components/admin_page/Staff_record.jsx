@@ -6,7 +6,7 @@ const StaffList = () => {
 
   const fetchStaff = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/staff/record');
+      const response = await fetch(window.location.origin + "/api/staff/record");
       const data = await response.json();
       setStaffMembers(data);
     } catch (error) {

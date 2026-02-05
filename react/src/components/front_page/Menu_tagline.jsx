@@ -53,7 +53,7 @@ const MenuTagline = () => {
           <div key={product.id} className={`min-w-[260px] md:min-w-[300px] snap-start group cursor-pointer ${product.status === "inactive" && "hidden"}`}>
             <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-gray-100 shadow-sm">
               <img 
-                src={`http://localhost:8000/storage/${product.picture}`} 
+                src={`${window.location.origin}/storage/${product.picture}`}
                 alt={product.product_name}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />

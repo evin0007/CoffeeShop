@@ -9,7 +9,7 @@ function Feedback() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('http://localhost:8000/api/showratings');
+        const res = await fetch(window.location.origin + "/api/showratings");
         const data = await res.json();
         setRateData(Array.isArray(data) ? [...data, ...data] : []);
       } catch (e) {

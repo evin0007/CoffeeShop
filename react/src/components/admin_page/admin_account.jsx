@@ -7,7 +7,7 @@ import {
 import logo from '../../assets/images/coffee.png';
 import logo2 from '../../assets/images/back.jpg';
 
-const API_BASE_URL = 'http://localhost:8000'; 
+const API_BASE_URL = window.location.origin; 
 
 const AdminAccountPanel = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

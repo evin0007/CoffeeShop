@@ -13,7 +13,7 @@ const Login = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            const { data } = await axios.post('http://127.0.0.1:8000/api/login', creds);
+            const { data } = await axios.post(window.location.origin + "/api/login", creds);
             if (data.status === 'success') {
                 localStorage.setItem('staff_user', JSON.stringify(data.user));
                 navigate('/cashier');
@@ -33,8 +33,6 @@ const Login = () => {
     return (
         <div className="min-h-screen flex items-center justify-center p-4 text-[#3C2A21]">
             <div className="max-w-4xl w-full bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-stone-100">
-                
-                {/* Brand Side */}
                 <div className="hidden md:flex md:w-1/2 bg-[#3C2A21] p-12 flex-col justify-between relative">
                     <div className="absolute top-0 right-0 opacity-10 translate-x-1/4 -translate-y-1/4"><Coffee size={300} /></div>
                     <div className="relative z-10">
@@ -49,8 +47,6 @@ const Login = () => {
                     </div>
                     <div className="relative z-10 text-stone-500 text-[10px] font-medium uppercase tracking-widest">© 2026 Bean & Brew Co.</div>
                 </div>
-
-                {/* Form Side */}
                 <div className="w-full md:w-1/2 p-8 sm:p-12">
                     <div className="mb-10 text-center md:text-left">
                         <div className="md:hidden flex justify-center mb-6">
@@ -63,7 +59,6 @@ const Login = () => {
                     </div>
 
                     <form onSubmit={handleLogin} className="space-y-5">
-                        {/* Email Field */}
                         <div className="space-y-1">
                             <label htmlFor="email" className="text-[10px] font-black uppercase tracking-widest text-stone-500 ml-1">Work Email</label>
                             <div className="relative group">
@@ -80,8 +75,6 @@ const Login = () => {
                                 />
                             </div>
                         </div>
-
-                        {/* Staff Code Field */}
                         <div className="space-y-1">
                             <label htmlFor="staff_code" className="text-[10px] font-black uppercase tracking-widest text-stone-500 ml-1">Staff Access Code</label>
                             <div className="relative group">

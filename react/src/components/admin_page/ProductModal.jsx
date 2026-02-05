@@ -15,7 +15,7 @@ const ProductModal = ({ isOpen, onClose, onSave, editingProduct }) => {
         status: editingProduct.status || "active",
         category: editingProduct.category || "" 
       });
-      setPreview(editingProduct.picture ? `http://127.0.0.1:8000/storage/${editingProduct.picture}` : null);
+      setPreview(editingProduct.picture ? `${window.location.origin}/storage/${editingProduct.picture}` : null);
     } else {
       setFormData({ 
         product_name: "", price: "", code: "", notes: "", picture: null, status: "active", category: "" 

@@ -9,7 +9,7 @@ import NotFound from "./components/Not_found";
 import Admin from "./components/Admin_dashboard";
 import Login from "./components/Staff_login";
 import AdminLogin from "./components/Admin_login";
-import Cashier from './components/Cashier';
+import Cashier from './components/cashier';
 
 function App() {
   useEffect(() => {AOS.init({duration: 1200, once: false, mirror: true});

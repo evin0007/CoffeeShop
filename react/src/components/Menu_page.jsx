@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import OrderSummary from './menu_tab/OrderSummary';
 
 const CATEGORIES = ['All Menu', 'Hot Coffee', 'Ice Coffee', 'Milktea', 'Meal', 'Appetizer'];
-const STORAGE_URL = "http://127.0.0.1:8000/storage/";
+const STORAGE_URL = window.location.origin + "/storage/";
 const SIZES = [{ label: 'S', extra: 0 }, { label: 'M', extra: 20 }, { label: 'L', extra: 35 }];
 const DRINK_CATS = ['Hot Coffee', 'Ice Coffee', 'Milktea'];
 
@@ -19,7 +19,7 @@ export default function OrderingSystem() {
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/products')
+    fetch(window.location.origin + "/api/products")
       .then(res => res.json())
       .then(data => { setMenuData(data); setLoading(false); })
       .catch(() => setLoading(false));

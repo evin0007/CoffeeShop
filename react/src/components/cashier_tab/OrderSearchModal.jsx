@@ -115,7 +115,7 @@ const handlePaymentProcess = (order) => {
     },
     preConfirm: async () => {
       try {
-        const response = await axios.post('http://localhost:8000/api/save-order', {
+        const response = await axios.post(window.location.origin + "/api/save-order", {
           code: order.code,
           staff: order.name,
           all_order: order.all_order,

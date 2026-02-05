@@ -8,7 +8,7 @@ const BestMenu = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/products');
+        const response = await fetch(window.location.origin + "/api/products");
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -63,7 +63,7 @@ const BestMenu = () => {
               className="min-w-[200px] md:min-w-[240px] snap-start bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition-shadow"
             >
               <img 
-                src={`http://localhost:8000/storage/${product.picture}`} 
+               src={`${window.location.origin}/storage/${product.picture}`}
                 alt={product.name} 
                 className="w-full h-40 object-cover rounded-lg mb-3"
               />

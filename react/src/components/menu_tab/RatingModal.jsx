@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
-const API_URL = 'http://127.0.0.1:8000/api/ratings';
+const API_URL = window.location.origin + "/api/ratings";
 
 export const showOrderSuccess = (orderCode) => {
   return MySwal.fire({

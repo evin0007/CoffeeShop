@@ -28,7 +28,7 @@ export default function OrderSummary({ cart, total, onBack, onUpdate }) {
     ).join(',');
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/checkout', {
+      const res = await fetch(window.location.origin + "/api/checkout", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ all_order: itemsFormatted, status: orderType, total_price: total, staff: 'Customer App' }),
@@ -37,13 +37,8 @@ export default function OrderSummary({ cart, total, onBack, onUpdate }) {
       const data = await res.json();
       
       if (res.ok) {
-        // 1. Show the Order Code Success Modal
         await showOrderSuccess(data.code);
-
-        // 2. DELAY FOR 3 SECONDS
         await new Promise(resolve => setTimeout(resolve, 3000));
-
-        // 3. Show Rating Modal (Database saving logic is inside this function)
         await showRatingModal();
         
         window.location.reload();

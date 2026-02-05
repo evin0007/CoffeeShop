@@ -4,8 +4,8 @@ import { Pencil, Trash2, Plus, Filter } from "lucide-react";
 import ProductModal from "./ProductModal";
 import Swal from "sweetalert2";
 
-const API_URL = "http://127.0.0.1:8000/api/products";
-const STORAGE_URL = "http://127.0.0.1:8000/storage/";
+const API_URL = window.location.origin + "/api/products";
+const STORAGE_URL = window.location.origin + "/storage/";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);

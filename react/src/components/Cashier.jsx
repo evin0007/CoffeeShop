@@ -8,8 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import logo from './../assets/images/coffee.png';
 
 const MySwal = withReactContent(Swal);
-const API_BASE = "http://localhost:8000/api";
-const STORAGE_URL = "http://127.0.0.1:8000/storage/";
+const API_BASE = window.location.origin + "/api";
+const STORAGE_URL = window.location.origin + "/storage/";
 const SIZES = [{ label: 'S', extra: 0 }, { label: 'M', extra: 20 }, { label: 'L', extra: 35 }];
 const DRINK_CATS = ['Hot Coffee', 'Ice Coffee', 'Milktea'];
 
