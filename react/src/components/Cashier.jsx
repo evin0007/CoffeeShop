@@ -185,7 +185,7 @@ const Cashier = () => {
 
 const ProductCard = ({ p, size, setSize, onAdd }) => {const disabled = p.status !== 'active';const isDrink = DRINK_CATS.includes(p.category);
   return (
-    <div className={`p-1.5 rounded-2xl flex flex-col ${disabled ? 'bg-stone-100 opacity-50' : 'bg-white shadow-sm'}`}>
+    <div className={`p-1.5 mw-[500px] rounded-2xl flex flex-col ${disabled ? 'bg-stone-100 opacity-50' : 'bg-white shadow-sm'}`}>
       <div className="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-2 relative">
         <img src={STORAGE_URL + p.picture} onError={e => e.target.src = p.picture} className="w-full h-full object-cover" alt="" />
         {isDrink && !disabled && (
